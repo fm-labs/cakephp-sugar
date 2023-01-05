@@ -22,13 +22,14 @@ use Cake\View\StringTemplateTrait;
  * @property \Cake\View\Helper\PaginatorHelper $Paginator
  * @property \Sugar\View\Helper\FormatterHelper $Formatter
  * @property \Bootstrap\View\Helper\ButtonHelper $Button
+ * @property \Bootstrap\View\Helper\DropdownHelper $Dropdown
  * @property \Bootstrap\View\Helper\IconHelper $Icon
  */
 class DataTableHelper extends Helper
 {
     use StringTemplateTrait;
 
-    public $helpers = ['Html', 'Form', 'Paginator', 'Sugar.Formatter', 'Bootstrap.Button', 'Bootstrap.Icon'];
+    public $helpers = ['Html', 'Form', 'Paginator', 'Sugar.Formatter', 'Bootstrap.Button', 'Bootstrap.Icon', 'Bootstrap.Dropdown'];
 
     protected $_params = [];
 
@@ -77,7 +78,7 @@ class DataTableHelper extends Helper
     {
         $this->templater()->add([
             'table_container' => '<div class="datatable-container">{{table}}{{pagination}}{{script}}</div>',
-            'table' => '<table class="table table-condensed table-hover"{{attrs}}>{{head}}{{body}}{{footer}}</table>',
+            'table' => '<table class="table table-sm table-hover"{{attrs}}>{{head}}{{body}}{{footer}}</table>',
             'head' => '<thead><tr>{{cellheads}}{{actionshead}}</tr></thead>',
             'footer' => '<tfoot><tr>{{cellheads}}{{actionshead}}</tr></tfoot>',
             'headCell' => '<th{{attrs}}>{{content}}</th>',
@@ -820,11 +821,11 @@ class DataTableHelper extends Helper
         }
 
         $icon = $this->Icon->create('gear');
-        $button = $this->Button->create($icon, [
-            'size' => 'xs',
-            'dropdown' => $actions,
-        ]);
-
+//        $button = $this->Button->create($icon, [
+//            'size' => 'xs',
+//            'dropdown' => $actions,
+//        ]);
+        $button = $this->Dropdown->button($icon, $actions);
         return $button;
     }
 

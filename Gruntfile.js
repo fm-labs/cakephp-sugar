@@ -18,10 +18,8 @@ module.exports = function(grunt) {
           banner: '/** <%= pkg.title || pkg.name %> - v<%= pkg.version %> **/\n'
         },
         files: {
-          'webroot/css/ui.css': 'webroot/less/ui.less',
-          'webroot/css/jstree/themes/admin/style.css': 'webroot/less/plugins/jstree/jstree.less'
+          'webroot/css/sugar.css': 'webroot/less/sugar.less'
         }
-
       },
       production: {
         options: {
@@ -33,8 +31,7 @@ module.exports = function(grunt) {
           ]
         },
         files: {
-          'webroot/css/ui.min.css': 'webroot/less/ui.less',
-          'webroot/css/jstree/themes/admin/style.min.css': 'webroot/less/plugins/jstree/jstree.less'
+          'webroot/css/sugar.min.css': 'webroot/less/sugar.less'
         }
       }
     },
