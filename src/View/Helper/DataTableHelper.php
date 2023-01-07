@@ -24,12 +24,18 @@ use Cake\View\StringTemplateTrait;
  * @property \Bootstrap\View\Helper\ButtonHelper $Button
  * @property \Bootstrap\View\Helper\DropdownHelper $Dropdown
  * @property \Bootstrap\View\Helper\IconHelper $Icon
+ * @property \Sugar\View\Helper\FontAwesome4Helper $FontAwesome
  */
 class DataTableHelper extends Helper
 {
     use StringTemplateTrait;
 
-    public $helpers = ['Html', 'Form', 'Paginator', 'Sugar.Formatter', 'Bootstrap.Button', 'Bootstrap.Icon', 'Bootstrap.Dropdown'];
+    public $helpers = [
+        'Html', 'Form', 'Paginator',
+        'Bootstrap.Button', 'Bootstrap.Icon', 'Bootstrap.Dropdown',
+        'Sugar.Formatter',
+        'FontAwesome' => ['className' => '\Sugar\View\Helper\FontAwesome4Helper']
+    ];
 
     protected $_params = [];
 
@@ -87,17 +93,6 @@ class DataTableHelper extends Helper
             'row' => '<tr{{attrs}}>{{cells}}{{actionscell}}</tr>',
             'rowCell' => '<td{{attrs}}>{{content}}</td>',
             'rowActionsCell' => '<td class="actions" style="text-align: right;"{{attrs}}>{{actions}}</td>',
-            '_rowActionsCell' => '<td class="actions">
-                <div class="dropdown pull-right">
-                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        <i class="fa fa-gear"></i>
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                         {{actions}}
-                    </ul>
-                </div>
-            </td>',
             'rowAction' => '<li>{{content}}</li>',
             'rowSelectCell' => '<td>{{content}}</td>',
         ]);
@@ -219,7 +214,7 @@ class DataTableHelper extends Helper
         $this->_initialize();
 
         //if ($this->_setup === null) {
-            $event = $this->_View->getEventManager()->dispatch(new Event('Sugar.DataTable.setup', $this));
+        $event = $this->_View->getEventManager()->dispatch(new Event('Sugar.DataTable.setup', $this));
         //}
 
         return $this;
@@ -384,8 +379,8 @@ class DataTableHelper extends Helper
     }
 
     /**
-     * @deprecated Use render() instead
      * @return string
+     * @deprecated Use render() instead
      */
     public function renderAll()
     {
@@ -676,12 +671,12 @@ class DataTableHelper extends Helper
 
             if ($column['type'] == 'boolean') {
                 $filterInputOptions['type'] = 'select';
-                $filterInputOptions['options'] = [ 0 => __d('sugar', 'No'), 1 => __d('sugar', 'Yes')];
+                $filterInputOptions['options'] = [0 => __d('sugar', 'No'), 1 => __d('sugar', 'Yes')];
                 //$filterInputOptions['empty'] = __d('sugar', 'All');
                 $filterInputOptions['data-placeholder'] = __d('sugar', 'All');
 
-            //} elseif ($column['type'] == 'select' || substr($fieldName, -3) == '_id') {
-            //    $filterInputOptions['empty'] = __d('sugar', 'All');
+                //} elseif ($column['type'] == 'select' || substr($fieldName, -3) == '_id') {
+                //    $filterInputOptions['empty'] = __d('sugar', 'All');
             } elseif ($column['type'] == 'date' || $column['type'] == 'datetime') {
                 $filterInputOptions['type'] = 'hidden';
             } elseif ($column['type'] == 'text') {
@@ -820,12 +815,15 @@ class DataTableHelper extends Helper
             }
         }
 
-        $icon = $this->Icon->create('gear');
+        $icon = $this->FontAwesome->icon('chevron-down');
+//        $icon = $this->Icon->create('chevron-down');
 //        $button = $this->Button->create($icon, [
 //            'size' => 'xs',
 //            'dropdown' => $actions,
 //        ]);
-        $button = $this->Dropdown->button($icon, $actions);
+        $button = $this->Dropdown->button($icon, $actions, [
+            'class' => 'btn btn-sm dropdown'
+        ]);
         return $button;
     }
 

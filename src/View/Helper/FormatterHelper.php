@@ -17,7 +17,7 @@ use Cake\View\Helper;
  * @property \Cake\View\Helper\HtmlHelper $Html
  * @property \Cake\View\Helper\NumberHelper $Number
  * @property \Cake\View\Helper\TimeHelper $Time
- * @property \Bootstrap\View\Helper\UiHelper $Ui
+ * @property \Cupcake\View\Helper\StatusHelper $Status
  *
  * @TODO Remove hard dependency on Bootstrap plugin. Use mixin solution
  */
@@ -55,7 +55,11 @@ class FormatterHelper extends Helper
 
         // boolean
         self::register('boolean', function ($val, $extra, $params) {
-            return $this->Ui->statusLabel($val);
+            if (\Cake\Core\Plugin::isLoaded('Cupcake')) {
+                $StatusHelper = $this->_View->loadHelper('Cupcake.Status');
+                return $StatusHelper->boolean($val);
+            }
+            return $val === true ? __("Yes") : __("No");
         });
 
         // date
