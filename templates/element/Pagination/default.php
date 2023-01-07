@@ -24,7 +24,7 @@ $this->Paginator->templater()->add([
         'first' => '<a class="btn btn-sm btn-outline-secondary" href="{{url}}">{{text}}</a>',
         'last' => '<a class="btn btn-sm btn-outline-secondary" href="{{url}}">{{text}}</a>',
         'number' => '<a class="btn btn-sm btn-outline-secondary" href="{{url}}">{{text}}</a>',
-        'current' => '<a class="btn btn-sm btn-outline-secondary active" href="{{url}}">{{text}}</a>',
+        'current' => '<a class="btn btn-sm btn-primary active" href="{{url}}">{{text}}</a>',
 //        'current' => '<li class="active"><a href="">{{text}}</a></li>',
 //        'ellipsis' => '<li class="ellipsis">&hellip;</li>',
 //        'sort' => '<a href="{{url}}">{{text}}</a>',
