@@ -22,7 +22,7 @@ class JqueryHelper extends Helper
      */
     protected $_defaultConfig = [
         'scriptUrl' => 'Sugar./libs/jquery/jquery.min.js',
-        'scriptBlock' => 'script'
+        'scriptBlock' => 'headjs'
     ];
 
     public function initialize(array $config): void

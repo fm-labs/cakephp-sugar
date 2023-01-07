@@ -11,6 +11,10 @@ module.exports = function(grunt) {
       '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     // Task configuration.
+    clean: {
+      build: ['webroot/libs/*']
+    },
+
     less: {
       development: {
         options: {
@@ -45,14 +49,14 @@ module.exports = function(grunt) {
         files: [
           // includes files within path
           //{expand: true, cwd: 'node_modules/backbone/', src: ['**'], dest: 'webroot/libs/backbone/'},
-          {expand: true, cwd: 'node_modules/bootstrap/', src: ['dist/**'], dest: 'webroot/libs/bootstrap/'},
+          //{expand: true, cwd: 'node_modules/bootstrap/', src: ['dist/**'], dest: 'webroot/libs/bootstrap/'},
           //{expand: true, cwd: 'node_modules/chosen/', src: ['*.js', '*.css', '*.png'], dest: 'webroot/libs/chosen/'},
           {expand: true, cwd: 'node_modules/flag-icons/', src: ['css/**', 'flags/**'], dest: 'webroot/libs/flag-icons/'},
           {expand: true, cwd: 'node_modules/font-awesome/', src: ['css/**', 'fonts/**'], dest: 'webroot/libs/fontawesome/'},
           {expand: true, cwd: 'node_modules/ionicons/', src: ['css/**', 'fonts/**', 'png/**'], dest: 'webroot/libs/ionicons/'},
           {expand: true, cwd: 'node_modules/image-picker/image-picker/', src: ['**'], dest: 'webroot/libs/image-picker/'},
           {expand: true, cwd: 'node_modules/jquery/dist/', src: ['**'], dest: 'webroot/libs/jquery/'},
-          {expand: true, cwd: 'node_modules/jquery-ui/', src: ['*.js', 'themes/base/**'], dest: 'webroot/libs/jquery-ui/'},
+          //{expand: true, cwd: 'node_modules/jquery-ui/', src: ['*.js', 'themes/base/**'], dest: 'webroot/libs/jquery-ui/'},
           {expand: true, cwd: 'node_modules/jstree/dist/', src: ['**'], dest: 'webroot/libs/jstree/'},
           {expand: true, cwd: 'node_modules/pickadate/lib/compressed', src: ['**'], dest: 'webroot/libs/pickadate/'},
           {expand: true, cwd: 'node_modules/tinymce/', src: ['**'], dest: 'webroot/libs/tinymce/'},
@@ -85,8 +89,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
   // Default task.
-  grunt.registerTask('default', ['less', 'copy']);
+  grunt.registerTask('default', ['clean', 'less', 'copy']);
 
 };

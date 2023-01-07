@@ -22,8 +22,8 @@ class HtmlEditorHelper extends Helper
      */
     public function beforeLayout(Event $event)
     {
-        $this->Html->script('/sugar/libs/tinymce/tinymce.min', ['block' => 'script']);
-        $this->Html->script('/sugar/libs/tinymce/jquery.tinymce.min', ['block' => 'script']);
-        $this->Html->script('/sugar/js/sugar.htmleditor.js', ['block' => 'script']);
+        $this->Html->script('Sugar./libs/tinymce/tinymce.min', ['block' => 'script']);
+        $this->Html->script('Sugar./libs/tinymce/jquery.tinymce.min', ['block' => 'script']);
+        //$this->Html->script('/admin/js/admin.htmleditor.js', ['block' => 'script']);
     }
 }

@@ -5,7 +5,7 @@ namespace Sugar\Test\TestCase\View\Helper;
 
 use Cake\TestSuite\TestCase;
 use Cake\View\View;
-use Sugar\View\Helper\FontAwesomeHelper;
+use Sugar\View\Helper\FontAwesome4Helper;
 
 /**
  * Sugar\View\Helper\FontAwesomeHelper Test Case
@@ -15,7 +15,7 @@ class FontAwesomeHelperTest extends TestCase
     /**
      * Test subject
      *
-     * @var \Sugar\View\Helper\FontAwesomeHelper
+     * @var \Sugar\View\Helper\FontAwesome4Helper
      */
     protected $FontAwesome;
 
@@ -28,7 +28,7 @@ class FontAwesomeHelperTest extends TestCase
     {
         parent::setUp();
         $view = new View();
-        $this->FontAwesome = new FontAwesomeHelper($view);
+        $this->FontAwesome = new FontAwesome4Helper($view);
     }
 
     /**
