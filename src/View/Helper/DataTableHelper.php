@@ -815,14 +815,14 @@ class DataTableHelper extends Helper
             }
         }
 
-        $icon = $this->FontAwesome->icon('chevron-down');
+        $icon = $this->FontAwesome->icon('gear');
 //        $icon = $this->Icon->create('chevron-down');
 //        $button = $this->Button->create($icon, [
 //            'size' => 'xs',
 //            'dropdown' => $actions,
 //        ]);
         $button = $this->Dropdown->button($icon, $actions, [
-            'class' => 'btn btn-sm dropdown'
+            'class' => 'btn btn-xxs dropdown'
         ]);
         return $button;
     }
