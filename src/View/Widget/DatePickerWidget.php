@@ -55,7 +55,8 @@ class DatePickerWidget extends CakeDateTimeWidget
         $input = $this->_text->render($data, $context);
 
         $pickerOptions = [
-            'format' => 'dd.mm.yyyy',
+            //'format' => 'dd.mm.yyyy',
+            'format' => 'yyyy-mm-dd',
             'formatSubmit' => 'yyyy-mm-dd',
             'hiddenPrefix' => null,
             'hiddenSuffix' => null,
