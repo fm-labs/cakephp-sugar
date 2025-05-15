@@ -1,5 +1,10 @@
 # Sugar plugin for CakePHP
 
+***!!! This plugin is outdated atm. !!!***
+
+**Sugar** is a CakePHP plugin that provides a collection of useful components, helpers, and other tools to make your development process easier and more efficient.
+
+
 ## Installation
 
 You can install this plugin into your CakePHP application using [composer](https://getcomposer.org).
