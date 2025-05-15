@@ -128,11 +128,11 @@ class DateRangePickerWidget extends BasicWidget
         // custom ranges
         $defaultRanges = [
             'Today' => [(new \Cake\I18n\Date()), (new \Cake\I18n\Date())],
-            'Yesterday' => [(new \Cake\I18n\Date())->subDays(1), (new \Cake\I18n\Date())->subDays(1)],
-            'Last 7 Days' => [(new \Cake\I18n\Date())->subDays(6), (new \Cake\I18n\Date())],
-            'Last 30 Days' => [(new \Cake\I18n\Date())->subDays(29), (new \Cake\I18n\Date())],
+            'Yesterday' => [(new \Cake\I18n\Date())->subDays(1, 1), (new \Cake\I18n\Date())->subDays(1, 1)],
+            'Last 7 Days' => [(new \Cake\I18n\Date())->subDays(6, 1), (new \Cake\I18n\Date())],
+            'Last 30 Days' => [(new \Cake\I18n\Date())->subDays(29, 1), (new \Cake\I18n\Date())],
             'This month' => [(new \Cake\I18n\Date())->startOfMonth(), (new \Cake\I18n\Date())->endOfMonth()],
-            'Last month' => [(new \Cake\I18n\Date())->subMonth(1), (new \Cake\I18n\Date())->startOfMonth()],
+            'Last month' => [(new \Cake\I18n\Date())->subMonths(1, 1), (new \Cake\I18n\Date())->startOfMonth()],
         ];
         if (isset($params['ranges']) && $params['ranges'] === true) {
             $params['ranges'] = $defaultRanges;

@@ -13,14 +13,14 @@ use Cake\View\View;
  */
 class JqueryHelper extends Helper
 {
-    public $helpers = ['Html'];
+    public array $helpers = ['Html'];
 
     /**
      * Default configuration.
      *
      * @var array<string, mixed>
      */
-    protected $_defaultConfig = [
+    protected array $_defaultConfig = [
         'scriptUrl' => 'Sugar./libs/jquery/jquery.min.js',
         'scriptBlock' => 'headjs'
     ];

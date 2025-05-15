@@ -15,7 +15,7 @@ use Cake\View\Helper;
  */
 class ToastrHelper extends Helper
 {
-    public $helpers = ['Html'];
+    public array $helpers = ['Html'];
 
     /**
      * @inheritDoc

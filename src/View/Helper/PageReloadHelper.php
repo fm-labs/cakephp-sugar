@@ -14,7 +14,7 @@ class PageReloadHelper extends Helper
     /**
      * @var array
      */
-    protected $_defaultConfig = [
+    protected array $_defaultConfig = [
         'timeout' => 0,
         'render' => 'html', // 'html' (default), 'script', 'both' (not recommended)
         'infoBlock' => false,

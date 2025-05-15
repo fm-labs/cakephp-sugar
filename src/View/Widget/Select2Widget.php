@@ -10,7 +10,7 @@ use Cake\View\Widget\SelectBoxWidget;
 
 class Select2Widget extends SelectBoxWidget
 {
-    protected $defaults = [
+    protected array $defaults = [
         // original
         'name' => '',
         'empty' => true, // In the original SelectBoxWidget the default value is FALSE!

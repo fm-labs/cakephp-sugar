@@ -14,7 +14,7 @@ use Cake\View\Helper;
  */
 class DateRangePickerHelper extends Helper
 {
-    public $helpers = ['Html', 'Form'];
+    public array $helpers = ['Html', 'Form'];
 
     /**
      * {@inheritDoc}

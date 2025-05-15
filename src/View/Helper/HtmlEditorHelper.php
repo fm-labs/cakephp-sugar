@@ -14,7 +14,7 @@ use Cake\View\Helper;
  */
 class HtmlEditorHelper extends Helper
 {
-    public $helpers = ['Html'];
+    public array $helpers = ['Html'];
 
     /**
      * @param \Cake\Event\Event $event The event object

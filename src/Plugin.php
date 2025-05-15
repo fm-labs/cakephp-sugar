@@ -13,10 +13,10 @@ class Plugin extends BasePlugin
     /**
      * @var bool
      */
-    public $routesEnabled = false;
+    public bool $routesEnabled = false;
 
     /**
      * @var bool
      */
-    public $bootstrapEnabled = false;
+    public bool $bootstrapEnabled = false;
 }

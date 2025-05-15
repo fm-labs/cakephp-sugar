@@ -20,14 +20,14 @@ class BoxHelper extends Helper
     /**
      * @var array
      */
-    public $helpers = ['Html'];
+    public array $helpers = ['Html'];
 
     /**
      * Default config for this class
      *
      * @var array
      */
-    protected $_defaultConfig = [
+    protected array $_defaultConfig = [
         'templates' => [
             'box' => '<div class="box {{class}}">{{header}}{{body}}{{footer}}</div>',
             'boxHeader' => '<div class="box-header {{class}}">{{icon}} {{title}}{{tools}}</div>',

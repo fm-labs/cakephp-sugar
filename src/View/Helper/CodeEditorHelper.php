@@ -14,9 +14,9 @@ use Cake\View\Helper;
  */
 class CodeEditorHelper extends Helper
 {
-    public $helpers = ['Html', 'Form'];
+    public array $helpers = ['Html', 'Form'];
 
-    protected $_defaultConfig = [
+    protected array $_defaultConfig = [
         'scriptUrl' => '/sugar/vendor/ace/1.4.1-noconflict/ace.js',
         'scriptBlock' => true,
     ];

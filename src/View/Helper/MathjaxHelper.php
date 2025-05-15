@@ -9,7 +9,7 @@ class MathjaxHelper extends Helper
 {
     protected $_scriptsLoaded = false;
 
-    protected $_defaultConfig = [
+    protected array $_defaultConfig = [
         'jsSrc' => 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js',
         'inlineDelimiters' => [['$', '$'], ['\\(', '\\)']]
     ];

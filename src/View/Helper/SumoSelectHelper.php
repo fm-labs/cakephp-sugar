@@ -7,13 +7,13 @@ use Cake\View\Helper;
 
 class SumoSelectHelper extends Helper
 {
-    protected $_defaultConfig = [
+    protected array $_defaultConfig = [
         'scriptUrl' => '/sugar/libs/sumoselect/jquery.sumoselect.min.js',
         'cssUrl' => '/sugar/libs/sumoselect/sumoselect.css',
         'sumo' => [],
     ];
 
-    public $helpers = ['Html', 'Form'];
+    public array $helpers = ['Html', 'Form'];
 
     /**
      * {@inheritDoc}

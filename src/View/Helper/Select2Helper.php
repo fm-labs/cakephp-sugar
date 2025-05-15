@@ -15,7 +15,7 @@ use Cake\View\Helper;
  */
 class Select2Helper extends Helper
 {
-    public $helpers = ['Html', 'Form'];
+    public array $helpers = ['Html', 'Form'];
 
     /**
      * {@inheritDoc}

@@ -14,7 +14,7 @@ use Cake\View\Helper;
  */
 class SweetAlert2Helper extends Helper
 {
-    public $helpers = ['Html'];
+    public array $helpers = ['Html'];
 
     /**
      * {@inheritDoc}

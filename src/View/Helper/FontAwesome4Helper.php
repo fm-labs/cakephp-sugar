@@ -14,7 +14,7 @@ use Cake\View\StringTemplateTrait;
  */
 class FontAwesome4Helper extends Helper
 {
-    public $helpers = ['Html'];
+    public array $helpers = ['Html'];
 
     use StringTemplateTrait;
 
@@ -23,7 +23,7 @@ class FontAwesome4Helper extends Helper
      *
      * @var array<string, mixed>
      */
-    protected $_defaultConfig = [
+    protected array $_defaultConfig = [
         'defaultTemplate' => 'fontawesome',
         'templates' => [
             'fa_icon' => '<i class="fa fa-{{class}}"{{attrs}}></i>',
