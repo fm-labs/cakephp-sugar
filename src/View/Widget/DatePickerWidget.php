@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Sugar\View\Widget;
 
+use Cake\I18n\Date;
 use Cake\View\Form\ContextInterface;
 use Cake\View\StringTemplate;
 use Cake\View\View;
@@ -15,10 +16,10 @@ class DatePickerWidget extends CakeDateTimeWidget
     /**
      * @var \Cake\View\Widget\BasicWidget
      */
-    protected $_text;
+    protected BasicWidget $_text;
 
     /**
-     * {@inheritDoc}
+     * @inheritDoc
      */
     public function __construct(StringTemplate $templates, BasicWidget $text, View $view)
     {
@@ -29,7 +30,7 @@ class DatePickerWidget extends CakeDateTimeWidget
     }
 
     /**
-     * {@inheritDoc}
+     * @inheritDoc
      */
     public function render(array $data, ContextInterface $context): string
     {
@@ -43,11 +44,19 @@ class DatePickerWidget extends CakeDateTimeWidget
         ], $data);
 
         $data['type'] = 'text';
-        if ($data['val']) {
-            if (!is_object($data['val'])) {
-                $data['val'] = new DateTime($data['val']);
+
+        $val = $data['val'] ?? null;
+        if ($val) {
+            if ($val instanceof Date) {
+                $val = $val->format('Y-m-d');
+            } elseif ($val instanceof DateTime) {
+                $val = $val->format('Y-m-d');
+            } elseif (is_string($val)) {
+                $val = (new DateTime($val))->format('Y-m-d');
+            } else {
+                debug('Invalid date format: ' . gettype($val));
             }
-            $data['data-value'] = $data['value'] = date("Y-m-d", $data['val']->getTimestamp());
+            $data['data-value'] = $data['value'] = $val;
         }
         unset($data['val']);
         unset($data['options']);
